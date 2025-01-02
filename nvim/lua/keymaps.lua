@@ -1,4 +1,4 @@
--- making sure copy works correctly
+-- keymaps for copy
 if vim.fn.has('wsl') == 1 then
   vim.g.clipboard = {
     name = 'WslClipboard',
