@@ -13,3 +13,4 @@ vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 
 -- stops swapfiles
 vim.opt.swapfile = false
+vim.opt.wrap = false
