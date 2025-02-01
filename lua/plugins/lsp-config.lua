@@ -10,7 +10,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				-- reference repository https://github.com/williamboman/mason-lspconfig.nvim for other languages
-				ensure_installed = { "lua_ls", "clangd" }
+				ensure_installed = { "lua_ls", "clangd", "pyright", "ts_ls" }
 			})
 		end
 	},
@@ -21,14 +21,56 @@ return {
 			vim.diagnostic.config({
 				signs = false
 			})
-			
+
 			vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
 			vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 			vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
 			vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
 			vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
 
-			lspconfig.lua_ls.setup({})
+			-- cpp/clangd config (also c)
+			lspconfig.clangd.setup({
+
+			})
+
+			-- python config
+			lspconfig.pyright.setup({
+				settings = {
+					python = {
+						analysis = {
+							typeCheckingMode = "off"
+						}
+					}
+				}
+			})
+
+			-- javascript/typescript config
+			lspconfig.ts_ls.setup({
+				init_options = {
+					preferences = {
+						disableSuggestions = true
+					}
+				}
+			})
+
+			-- lua config
+			lspconfig.lua_ls.setup({
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { 'vim' }
+						}
+					}
+				}
+			})
+
+			lspconfig.opts = {
+				servers = {
+					clangd = {
+						mason = false
+					}
+				}
+			}
 		end
 	}
 }

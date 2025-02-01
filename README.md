@@ -8,3 +8,7 @@ Then clone the repo's contents into the new folder with:\
 ```git clone https://github.com/ahong89/nvim-config .```\
 Be sure to include the dot as to ensure git does not make an nvim-config folder\
 
+# Requirements
+- ripgrep ```sudo apt install ripgrep```
+- ts_ls (if you care about that) ```sudo npm install -g typescript-language-server```
+
