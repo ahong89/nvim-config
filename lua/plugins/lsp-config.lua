@@ -30,7 +30,7 @@ return {
 
 			-- cpp/clangd config (also c)
 			lspconfig.clangd.setup({
-
+				cmd = { "clangd", "--compile-commands-dir=builds" }
 			})
 
 			-- python config
@@ -46,11 +46,11 @@ return {
 
 			-- javascript/typescript config
 			lspconfig.ts_ls.setup({
-				init_options = {
-					preferences = {
-						disableSuggestions = true
-					}
-				}
+				-- init_options = {
+					-- preferences = {
+						-- disableSuggestions = false
+					-- }
+				-- },
 			})
 
 			-- lua config

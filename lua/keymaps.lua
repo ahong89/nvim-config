@@ -14,4 +14,5 @@ if vim.fn.has('wsl') == 1 then
   }
 end
 
+vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
 vim.keymap.set('v', '<C-c>', ":w !clip.exe<CR>", { silent = true })
