@@ -5,7 +5,7 @@ vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 
 -- adds line numbers
-vim.cmd("set number")
+vim.cmd("set number relativenumber")
 
 -- prevents enter from making new comments
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
