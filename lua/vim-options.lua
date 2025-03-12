@@ -11,9 +11,10 @@ vim.cmd("set number relativenumber")
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 
--- stops swapfiles
+-- stops excess files
 vim.opt.swapfile = false
 vim.opt.wrap = false
+vim.opt.viminfofile = "NONE"
 
 -- clipboard
 vim.g.clipboard = {

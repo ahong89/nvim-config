@@ -1,6 +1,6 @@
 return {
   {
-    "williamboman/mason.nvim",     -- manage installation of lsps
+    "williamboman/mason.nvim", -- manage installation of lsps
     config = function()
       require("mason").setup()
     end
@@ -19,7 +19,8 @@ return {
     config = function()
       local lspconfig = require('lspconfig')
       vim.diagnostic.config({
-        signs = false
+        signs = false,
+        virtual_text = true,
       })
 
       vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
