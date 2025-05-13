@@ -3,6 +3,7 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
+vim.opt.smartindent = false
 
 -- adds line numbers
 vim.cmd("set number relativenumber")
@@ -29,3 +30,5 @@ vim.g.clipboard = {
   },
   cache_enabled = 0,
 }
+
+vim.opt.mouse = "a"

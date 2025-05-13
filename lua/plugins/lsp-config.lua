@@ -10,7 +10,8 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         -- reference repository https://github.com/williamboman/mason-lspconfig.nvim for other languages
-        ensure_installed = { "lua_ls", "clangd", "pyright", "ts_ls" }
+        ensure_installed = { "lua_ls", "clangd", "ts_ls" },
+        automatic_enable = false,
       })
     end
   },
@@ -37,23 +38,12 @@ return {
         cmd = { "clangd", "--compile-commands-dir=builds" }
       })
 
-      -- python config
-      lspconfig.pyright.setup({
-        settings = {
-          python = {
-            analysis = {
-              typeCheckingMode = "off"
-            }
-          }
-        }
-      })
-
       -- javascript/typescript config
       lspconfig.ts_ls.setup({
         -- init_options = {
-        -- preferences = {
-        -- disableSuggestions = false
-        -- }
+        --   preferences = {
+        --     disableSuggestions = false
+        --   }
         -- },
       })
 
@@ -76,5 +66,18 @@ return {
         }
       }
     end
-  }
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local null_ls = require('null-ls')
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.formatting.black,
+        }
+      })
+    end
+  },
+
 }
