@@ -1,15 +1,6 @@
 return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
-  opts = {
-    menu = {
-      width = vim.api.nvim_win_get_width(0) - 4,
-    },
-    settings = {
-      save_on_toggle = false,
-      mark_branch = true
-    },
-  },
   keys = function()
     local keys = {
       {
@@ -29,7 +20,7 @@ return {
       },
     }
 
-    for i = 1, 5 do
+    for i = 1, 7 do
       table.insert(keys, {
         "<leader>" .. i,
         function()
@@ -39,5 +30,22 @@ return {
       })
     end
     return keys
+  end,
+  config = function()
+    local harpoon = require("harpoon")
+
+    harpoon:setup({
+      settings = {
+        save_on_toggle = true,
+        sync_on_ui_close = true,
+        key = function()
+          local root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+          if root == nil or root == "" then
+            root = vim.loop.cwd()
+          end
+          return root
+        end,
+      }
+    })
   end,
 }

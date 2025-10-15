@@ -2,7 +2,6 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000,
     config = function()
       require("catppuccin").setup({
         background = {
@@ -11,22 +10,55 @@ return {
         },
         transparent_background = true
       })
-      vim.cmd.colorscheme "catppuccin"
+      -- vim.cmd.colorscheme "catppuccin"
     end
   },
   {
     "arcticicestudio/nord-vim",
     name = "nord",
     config = function()
-      vim.cmd.colorscheme "nord"
-      vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "Folded", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+      -- vim.cmd.colorscheme "nord"
+    end
+  },
+  {
+    "olimorris/onedarkpro.nvim",
+    config = function()
+      -- vim.cmd.colorscheme "onedark"
+      -- local appearance = require("utils.appearance")
+      -- appearance.make_transparent()
+    end
+  },
+  {
+    "junegunn/seoul256.vim",
+    config = function()
+      vim.g.seoul256_background = 233
+      -- vim.cmd.colorscheme "seoul256"
+      -- local appearance = require("utils.appearance")
+      -- appearance.make_transparent()
+    end
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('lualine').setup({
+        options = {
+          theme = 'onedark'
+        }
+      })
+    end
+  },
+  {
+    'rebelot/kanagawa.nvim',
+    config = function()
+      require('kanagawa').setup({
+        transparent = true,
+      })
+      vim.cmd.colorscheme "kanagawa"
+      local appearance = require("utils.appearance")
+      appearance.make_transparent()
+      vim.api.nvim_set_hl(0, "LineNr", { fg = "#686887", bold = false })
+      vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#686887", bold = true })
     end
   }
 }
