@@ -23,15 +23,15 @@ return {
   {
     "olimorris/onedarkpro.nvim",
     config = function()
-      -- vim.cmd.colorscheme "onedark"
-      -- local appearance = require("utils.appearance")
-      -- appearance.make_transparent()
+      vim.cmd.colorscheme "onedark"
+      local appearance = require("utils.appearance")
+      appearance.make_transparent()
     end
   },
   {
     "junegunn/seoul256.vim",
     config = function()
-      vim.g.seoul256_background = 233
+      -- vim.g.seoul256_background = 233
       -- vim.cmd.colorscheme "seoul256"
       -- local appearance = require("utils.appearance")
       -- appearance.make_transparent()
@@ -54,11 +54,11 @@ return {
       require('kanagawa').setup({
         transparent = true,
       })
-      vim.cmd.colorscheme "kanagawa"
-      local appearance = require("utils.appearance")
-      appearance.make_transparent()
-      vim.api.nvim_set_hl(0, "LineNr", { fg = "#686887", bold = false })
-      vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#686887", bold = true })
+      -- vim.cmd.colorscheme "kanagawa"
+      -- local appearance = require("utils.appearance")
+      -- appearance.make_transparent()
+      -- vim.api.nvim_set_hl(0, "LineNr", { fg = "#686887", bold = false })
+      -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#686887", bold = true })
     end
   }
 }

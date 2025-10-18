@@ -1,8 +1,8 @@
 -- tab config
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 vim.opt.smartindent = false
 
 -- adds line numbers
@@ -32,3 +32,5 @@ vim.g.clipboard = {
 }
 
 vim.opt.mouse = "a"
+vim.opt.scrolloff = 8
+vim.opt.updatetime = 50
