@@ -2,6 +2,7 @@ vim.lsp.enable({
   'lua_ls',
   'ts_ls',
   'clangd',
+  'pyrefly',
 })
 
 vim.diagnostic.config({
