@@ -1,8 +1,9 @@
 vim.lsp.enable({
-  'lua_ls',
-  'ts_ls',
+  'lua-ls',
+  'ts-ls',
   'clangd',
   'pyrefly',
+  'ocaml-ls',
 })
 
 vim.diagnostic.config({
