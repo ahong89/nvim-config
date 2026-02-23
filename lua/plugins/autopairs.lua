@@ -7,6 +7,7 @@ return {
       npairs.setup({
         check_ts = true,
         ts_config = {},
+        disable_filetype = { "racket" }
       })
     end
     -- use opts = {} for passing setup options

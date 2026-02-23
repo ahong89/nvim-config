@@ -3,8 +3,9 @@ vim.lsp.enable({
   'ts-ls',
   'clangd',
   'pyrefly',
-  'ocaml-ls',
+  'rust',
 })
+-- 'ocaml-ls',
 
 vim.diagnostic.config({
   signs = false,

@@ -8,6 +8,14 @@ vim.opt.smartindent = false
 -- adds line numbers
 vim.cmd("set number relativenumber")
 
+-- adds horizontal line limit
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#7086a1" })
+  end,
+})
+vim.fn.matchadd("ColorColumn", [[\%81v]], 100)
+
 -- prevents enter from making new comments
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
