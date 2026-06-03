@@ -26,18 +26,22 @@ vim.opt.wrap = false
 vim.opt.viminfofile = "NONE"
 
 -- clipboard
-vim.g.clipboard = {
-  name = "WslClipboard",
-  copy = {
-    ["+"] = "/mnt/c/Windows/System32/clip.exe",
-    ["*"] = "/mnt/c/Windows/System32/clip.exe",
-  },
-  paste = {
-    ["+"] = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'",
-    ["*"] = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'",
-  },
-  cache_enabled = 0,
-}
+local is_wsl = vim.fn.has("wsl") == 1  -- untested
+
+if is_wsl then
+  vim.g.clipboard = {
+    name = "WslClipboard",
+    copy = {
+      ["+"] = "/mnt/c/Windows/System32/clip.exe",
+      ["*"] = "/mnt/c/Windows/System32/clip.exe",
+    },
+    paste = {
+      ["+"] = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'",
+      ["*"] = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'",
+    },
+    cache_enabled = 0,
+  }
+end
 
 vim.opt.mouse = "a"
 vim.opt.scrolloff = 8
