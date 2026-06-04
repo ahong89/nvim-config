@@ -2,6 +2,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    lazy = true,
     config = function()
       require("catppuccin").setup({
         background = {
@@ -16,12 +17,14 @@ return {
   {
     "arcticicestudio/nord-vim",
     name = "nord",
+    lazy = true,
     config = function()
       -- vim.cmd.colorscheme "nord"
     end
   },
   {
     "olimorris/onedarkpro.nvim",
+    lazy = true,
     config = function()
       -- vim.cmd.colorscheme "onedark"
       -- local appearance = require("utils.appearance")
@@ -30,6 +33,7 @@ return {
   },
   {
     "junegunn/seoul256.vim",
+    lazy = true,
     config = function()
       -- vim.g.seoul256_background = 233
       -- vim.cmd.colorscheme "seoul256"
@@ -39,6 +43,7 @@ return {
   },
   {
     'nvim-lualine/lualine.nvim',
+    lazy = true,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('lualine').setup({

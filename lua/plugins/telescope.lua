@@ -3,6 +3,11 @@ return {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' },
+    cmd = "Telescope",
+    keys = {
+      { '<C-p>', function() require("telescope.builtin").find_files() end },
+      { '<leader>g', function() require("telescope.builtin").live_grep() end },
+    },
     config = function()
       require('telescope').setup {
         pickers = {
@@ -14,20 +19,17 @@ return {
           }
         },
       }
-      local builtin = require("telescope.builtin")
-      vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-      vim.keymap.set('n', '<leader>g', builtin.live_grep, {})
     end
   },
   {
     'nvim-telescope/telescope-ui-select.nvim',
+    lazy = true,
+    dependencies = { 'nvim-telescope/telescope.nvim' },
     config = function()
       require("telescope").setup({
         extensions = {
           ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
-              --insert more opts
-            }
+            require("telescope.themes").get_dropdown {}
           }
         }
       })

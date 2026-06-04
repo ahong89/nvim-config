@@ -1,4 +1,9 @@
 require("config.options")
 require("config.keymaps")
 require("core.lazy")
-require("core.lsp")
+vim.api.nvim_create_autocmd("FileType", {
+  once = true,
+  callback = function()
+    require("core.lsp")
+  end,
+})
