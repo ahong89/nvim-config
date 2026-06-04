@@ -5,6 +5,8 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = false
 
+vim.g.editorconfig = true
+
 -- adds line numbers
 vim.cmd("set number relativenumber")
 
