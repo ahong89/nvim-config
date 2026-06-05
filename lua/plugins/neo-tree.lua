@@ -29,7 +29,18 @@ return {
       },
     },
     keys = {
-      { "<leader>e", "<cmd>Neotree focus<cr>", desc = "Toggle Neo-tree" },
+      {
+        "<leader>e",
+        function()
+          local ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
+          if ft == "neo-tree" then
+            vim.cmd("Neotree close")
+          else
+            vim.cmd("Neotree focus")
+          end
+        end,
+        desc = "Toggle Neo-tree",
+      },
     },
   }
 }
