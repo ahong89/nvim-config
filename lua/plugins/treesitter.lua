@@ -1,16 +1,15 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
-  event = { "BufReadPost", "BufNewFile" },
+  lazy = false,
+  opts = {
+    auto_install = true,
+  },
   config = function()
-    local configs = require("nvim-treesitter.configs")
-    configs.setup({
-      auto_install = true,
-      highlight = { enable = true },
-      indent = {
-        enable = true,
-        disable = { "ocaml" },
-      },
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function()
+        pcall(vim.treesitter.start)
+      end,
     })
-  end
+  end,
 }

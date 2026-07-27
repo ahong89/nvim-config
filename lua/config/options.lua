@@ -48,3 +48,7 @@ end
 vim.opt.mouse = "a"
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
+
+-- optimizations
+vim.opt.timeoutlen = 300
+vim.g.loaded_python3_provider = 0

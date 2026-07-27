@@ -37,14 +37,7 @@ return {
     harpoon:setup({
       settings = {
         save_on_toggle = true,
-        sync_on_ui_close = true,
-        key = function()
-          local root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
-          if root == nil or root == "" then
-            root = vim.loop.cwd()
-          end
-          return root
-        end,
+        sync_on_ui_close = false,
       }
     })
   end,

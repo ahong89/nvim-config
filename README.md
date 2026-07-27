@@ -17,6 +17,9 @@ or alternatively
 - luarocks (unavailable on mac os by default, unsure about wsl setup)
 ```brew install luarocks```
 
+- tree-sitter-cli (not sure if necessary)
+```brew install tree-sitter-cli```
+
 ## Notes
 The entire config was built to run on wsl however am currently adding compatibility to work on mac OS. (6/3/26)
 
