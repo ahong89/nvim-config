@@ -10,9 +10,18 @@ return {
     },
     config = function()
       require('telescope').setup {
+        defaults = {
+          -- don't score/scan build artifacts, git internals, or Brazil env dirs
+          file_ignore_patterns = { "%.git/", "/build/", "/env/", "%.class$" },
+        },
         pickers = {
           find_files = {
-            hidden = true
+            hidden = true,
+            -- exclude heavy dirs at the finder level so fd never enumerates them
+            find_command = {
+              "fd", "--type", "f", "--color", "never", "--hidden",
+              "--exclude", ".git", "--exclude", "build", "--exclude", "env",
+            },
           },
           color_scheme = {
             enable_preview = true

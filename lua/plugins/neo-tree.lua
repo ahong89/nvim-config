@@ -32,6 +32,9 @@ return {
           hide_gitignored = false, -- optional: also show gitignored files
         },
       },
+      window = {
+        position = "right",
+      },
     },
     keys = {
       {
